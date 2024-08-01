@@ -9624,7 +9624,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.3995246
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -15321,7 +15321,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1.38
+      value: 0.29543486
       mode: 0
       spread: 0
       speed:

@@ -16,15 +16,13 @@ public class BulletHitRegister : MonoBehaviour
     {
         if (damageSources.Contains(bullet)) return;
         
-        Debug.Log("Register " + bullet.name);
         damageSources.Add(bullet);
     }
 
     public void Deregister(Bullet bullet)
     {
         if (!damageSources.Contains(bullet)) return;
-
-        Debug.Log("Deregister " + bullet.name);
+        
         damageSources.Remove(bullet);
     }
 }

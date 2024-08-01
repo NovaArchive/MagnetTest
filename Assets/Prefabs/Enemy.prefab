@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1453583440521474129}
+  - component: {fileID: 851436886516742597}
   - component: {fileID: 4687070801763874784}
   - component: {fileID: 6176535419333110370}
   - component: {fileID: 2662714495746243952}
@@ -36,6 +37,34 @@ Transform:
   - {fileID: 8103030492969594948}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &851436886516742597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754496017457482468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7614b76ed89befd469284ca484545ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  OnHealthChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7763576558866680853}
+        m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
+        m_MethodName: OnHealthChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!33 &4687070801763874784
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -148,6 +177,7 @@ GameObject:
   - component: {fileID: 6967681541100167941}
   - component: {fileID: 1168158767782719015}
   - component: {fileID: 5131637761638262667}
+  - component: {fileID: 7763576558866680853}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -234,6 +264,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   billboardType: 1
+--- !u!114 &7763576558866680853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089035224714565469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38de6aa858d93d0469e17651fbe99bcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 1881908379414792490}
 --- !u!1 &4594911853032288842
 GameObject:
   m_ObjectHideFlags: 0

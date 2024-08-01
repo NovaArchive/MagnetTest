@@ -49,11 +49,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineRenderer: {fileID: 4106138745661024660}
-  visualizationRate: 0.5
-  fullLength: 1.5
+  fullLength: 1
   hitEffect: {fileID: 19867588, guid: 4cfc48af8194154459752640e3590eb3, type: 3}
   speed: 20
-  lifetime: 5
+  lifetime: 3
+  damage: 10
   maxPenetration: 3
   maxBounce: 3
 --- !u!120 &4106138745661024660
@@ -100,7 +100,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: -1.5}
+  - {x: 0, y: 0, z: -1}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.5

@@ -1,19 +1,20 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Duy.Core;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
     [Header("Visual")]
     [SerializeField] private LineRenderer lineRenderer;
-    [SerializeField] private float visualizationRate = 0.1f;
     [SerializeField] private float fullLength = 1.5f;
     [SerializeField] private ParticleSystem hitEffect;
     
     [Header("Settings")]
     [SerializeField] private float speed = 1f;
     [SerializeField] private float lifetime = 1f;
+    [SerializeField] private float damage = 10f;
     
     [Header("Hit Settings")]
     [SerializeField] private int maxPenetration = 3;
@@ -27,7 +28,7 @@ public class Bullet : MonoBehaviour
     private void Start()
     {
         lineRenderer.SetPosition(0, Vector3.zero);
-        lineRenderer.SetPosition(1, Vector3.zero);
+        lineRenderer.SetPosition(1, new Vector3(0, 0, -fullLength));
     }
 
     public void Init(Vector3 direction)
@@ -40,18 +41,8 @@ public class Bullet : MonoBehaviour
     private void Update()
     {
         transform.position += _direction * (speed * Time.deltaTime);
-        ExtendLine();
     }
-
-    private void ExtendLine()
-    {
-        Vector3 endpointPos = lineRenderer.GetPosition(1);
-        if (Mathf.Abs(endpointPos.z) < fullLength)
-        {
-            lineRenderer.SetPosition(1, new Vector3(0, 0, endpointPos.z - speed * visualizationRate * Time.deltaTime));
-        }
-    }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         GameObject hitObject = other.gameObject;
@@ -59,6 +50,11 @@ public class Bullet : MonoBehaviour
         
         if (register.CanBeHit(this))
         {
+            if (other.TryGetComponent(out IDamageable damageable))
+            {
+                damageable.Damage(damage);
+            }
+            
             _currentPenetration += 1;
             if (_currentPenetration == maxPenetration)
             {
@@ -66,7 +62,7 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
                 return;
             }
-            
+
             register.Register(this);
         }
     }
