@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Duy.Utility;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Player : MonoBehaviour
 {
